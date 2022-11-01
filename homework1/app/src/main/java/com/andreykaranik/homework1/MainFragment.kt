@@ -10,6 +10,9 @@ import android.widget.Button
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+private const val SPAN_COUNT_PORTRAIT = 3
+private const val SPAN_COUNT_LANDSCAPE = 4
+
 class MainFragment : Fragment() {
 
     private lateinit var adapter: MyAdapter
@@ -36,10 +39,10 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var spanCount = 3
+        var spanCount = SPAN_COUNT_PORTRAIT
         val orientation = resources.configuration.orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            spanCount = 4
+            spanCount = SPAN_COUNT_LANDSCAPE
         }
         val layoutManager = GridLayoutManager(context, spanCount)
         recyclerView = view.findViewById(R.id.recycler_view)
